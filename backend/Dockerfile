@@ -6,8 +6,8 @@ EXPOSE 80
 # Use the official ASP.NET Core SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["HelloWorldApi.csproj", "./"]
-RUN dotnet restore "./backend/HelloWorldApi.csproj"
+COPY ["HelloWorldApi.csproj", "./backend"]
+#RUN dotnet restore "./HelloWorldApi.csproj"
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "HelloWorldApi.csproj" -c Release -o /app/build
